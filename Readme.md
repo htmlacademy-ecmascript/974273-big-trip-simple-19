@@ -1,7 +1,7 @@
 # Проект «Большое путешествие (простой)»
 
-* Студент: [Сергей Никурашвили](https://up.htmlacademy.ru/ecmascript/19/user/974273).
-* Наставник: `Неизвестно`.
+- Студент: [Сергей Никурашвили](https://up.htmlacademy.ru/ecmascript/19/user/974273).
+- Наставник: [Александр Конотоп](https://htmlacademy.ru/profile/id2123489).
 
 ---
 
