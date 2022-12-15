@@ -6,6 +6,7 @@ export default class PointAdapter extends Adapter {
    */
   constructor (data = {}) {
     super();
+
     this.basePrice = data.base_price;
     this.starDate = data.date_from;
     this.endDate = data.date_to;
