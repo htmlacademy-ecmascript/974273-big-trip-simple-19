@@ -1,12 +1,13 @@
 import View from '../view';
 import {html} from '../../utils';
+import './offers-view.css';
 
 export default class OffersView extends View {
   constructor () {
     super();
 
-    this.classList.add('event__section');
-    this.classList.add('event__section--offers');
+    this.classList.add('event__section', 'event__section--offers');
+    // this.classList.add('event__section--offers');
   }
 
   /**
