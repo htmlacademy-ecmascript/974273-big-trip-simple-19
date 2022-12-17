@@ -148,9 +148,11 @@ export default class CollectionModel extends Model {
    */
   async delete(id) {
     // TODO: Написать реализацию
+    this.#items.splice(this.findIndexById(id), 1);
     log(id);
   }
 }
+
 function log(id) {
   log(id);
   throw new Error('Function not implemented.');
