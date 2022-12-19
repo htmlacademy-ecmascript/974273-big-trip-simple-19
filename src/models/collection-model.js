@@ -147,7 +147,6 @@ export default class CollectionModel extends Model {
    * @param {string} id
    */
   async delete(id) {
-    // TODO: Написать реализацию
     await this.#store.delete(id);
 
     const index = this.findIndexById(id);
@@ -158,10 +157,5 @@ export default class CollectionModel extends Model {
 
     return detail;
   }
-}
-
-function log(id) {
-  log(id);
-  throw new Error('Function not implemented.');
 }
 
