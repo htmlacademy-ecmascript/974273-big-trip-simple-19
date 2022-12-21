@@ -5,16 +5,16 @@ import {FilterType, SortType} from './enums';
  */
 export const filterCallbackMap = {
   [FilterType.EVERYTHING]: () => true,
-  [FilterType.FUTURE]: () => true
+  [FilterType.FUTURE]: (elem) => elem.endDateAsNumber >= Date.now()
 };
 
 /**
  * @type {Record<string,SortCallback<PointAdapter>>}
  */
 export const sortCallbackMap = {
-  [SortType.DAY]: () => 0,
+  [SortType.DAY]: (point, nextPoint) => point.startDateAsNumber - nextPoint.endDateAsNumber,
   [SortType.EVENT]: () => 0,
   [SortType.TIME]: () => 0,
-  [SortType.PRICE]: () => 0,
+  [SortType.PRICE]: (point, nextPoint) => nextPoint.basePrice - point.basePrice,
   [SortType.OFFERS]: () => 0
 };
