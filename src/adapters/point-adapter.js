@@ -8,12 +8,20 @@ export default class PointAdapter extends Adapter {
     super();
 
     this.basePrice = data.base_price;
-    this.starDate = data.date_from;
+    this.startDate = data.date_from;
     this.endDate = data.date_to;
     this.destinationId = String(data.destination);
     this.id = data.id;
     this.offerIds = data.offers?.map(String);
     this.type = data.type;
+  }
+
+  get startDateAsNumber() {
+    return Date.parse(this.startDate);
+  }
+
+  get endDateAsNumber() {
+    return Date.parse(this.endDate);
   }
 
   /**
@@ -23,7 +31,7 @@ export default class PointAdapter extends Adapter {
   toJSON() {
     return {
       'base_price': this.basePrice,
-      'date_from': this.starDate,
+      'date_from': this.startDate,
       'date_to': this.endDate,
       'destination': Number(this.destinationId),
       'id': this.id,
