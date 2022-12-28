@@ -55,7 +55,7 @@ export default class CollectionModel extends Model {
    * @param {SortCallback<ItemAdapter>} sort
    */
   setSort(sort, notify = true) {
-    this.sort = sort;
+    this.#sort = sort;
     if (notify) {
       this.dispatchEvent(new CompositionEvent('sort'));
     }
