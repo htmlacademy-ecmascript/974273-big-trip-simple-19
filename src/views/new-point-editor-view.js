@@ -51,6 +51,7 @@ export default class NewPointEditorView extends View {
 
   close(notify = true) {
     this.remove();
+
     document.removeEventListener('keydown', this);
 
     if (notify) {
