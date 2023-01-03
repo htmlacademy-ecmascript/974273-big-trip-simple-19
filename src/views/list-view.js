@@ -3,11 +3,6 @@ import View from './view';
 import PointView from './point-view';
 
 export default class ListView extends View {
-  // constructor () {
-  //   super();
-
-  //   this.classList.add('');
-  // }
 
   /**
   * @param {PointViewState[]} states
@@ -17,15 +12,6 @@ export default class ListView extends View {
 
     this.replaceChildren(...views);
   }
-
-  // /**
-  //  * @override
-  //  */
-  // createHtml() {
-  //   return html`
-  // 		<ul class="trip-events__list"></ul>
-  // 	`;
-  // }
 }
 
 customElements.define(String(ListView), ListView);

@@ -32,6 +32,7 @@ export default class RadioGroupView extends View {
    * @param {boolean[]} flags
    */
   setDisability(flags) {
+
     /**
     * @type {NodeListOf<HTMLInputElement>}
     */
