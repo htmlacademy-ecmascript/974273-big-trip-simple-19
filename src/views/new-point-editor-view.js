@@ -20,6 +20,11 @@ export default class NewPointEditorView extends View {
     this.listView = listView;
 
     this.classList.add('trip-events__item');
+
+    /**
+     * @type {PointTypeView}
+     */
+    this.pointTypeView = this.querySelector(String(PointTypeView));
   }
 
   /**

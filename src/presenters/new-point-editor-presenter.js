@@ -1,3 +1,5 @@
+import {PointType} from '../enums';
+import {pointTitleMap} from '../maps';
 import Presenter from './presenter';
 
 /**
@@ -6,6 +8,12 @@ import Presenter from './presenter';
 export default class NewPointEditorPresenter extends Presenter {
   constructor () {
     super(...arguments);
+
+    const pointTypeOptions =
+      Object.entries(pointTitleMap).map(([value, title]) => ({title, value}));
+
+    this.view.pointTypeView.setOptions(pointTypeOptions);
+    this.view.pointTypeView.setValue(PointType.BUS);
 
     this.view.addEventListener('submit', this.handleViewSubmit.bind(this));
     this.view.addEventListener('reset', this.handleViewReset.bind(this));
