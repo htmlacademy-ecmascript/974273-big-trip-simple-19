@@ -26,6 +26,7 @@ export default class NewPointEditorView extends View {
     /**
      * @type {PointTypeView}
      */
+    // TODO: Предоставляем доступ презентора к методам и свойствам дочерней view (PointTypeView)
     this.pointTypeView = this.querySelector(String(PointTypeView));
 
     /**

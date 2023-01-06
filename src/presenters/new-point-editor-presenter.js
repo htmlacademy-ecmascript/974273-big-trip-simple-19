@@ -9,12 +9,17 @@ export default class NewPointEditorPresenter extends Presenter {
   constructor () {
     super(...arguments);
 
+    // TODO: Преобразование объекта pointTitleMap в список из объектов для view PointTypeView
     const pointTypeOptions =
       Object.entries(pointTitleMap).map(([value, title]) => ({title, value}));
-
+    // TODO: Отрисовываем список типа транспорта на странице
     this.view.pointTypeView.setOptions(pointTypeOptions);
-    // TODO: Выбор типа транспорта по умолчанию
+    // TODO: Выбор типа транспорта по умолчанию при загрузке страницы
     this.view.pointTypeView.setValue(PointType.BUS);
+
+    // TODO: Преобразование списка объектов destinationsModel в список из объектов для view DestinationView
+    const pointDestinationOptions = this.destinationsModel.listAll().map((destination) => ({name: destination.name}));
+    this.view.destinationView.setOptions(pointDestinationOptions);
 
 
     this.view.pointTypeView.addEventListener('change', this.handlePointTypeViewChange.bind(this));

@@ -46,6 +46,24 @@ export default class DestinationView extends View {
       </datalist>
 		`;
   }
+
+  /**
+   * @param {DestinationViewState} state
+   */
+  createOptionHtml(state) {
+    return html`
+      <option value="${state.name}"></option>
+    `;
+  }
+
+  /**
+   * @param {DestinationViewState[]} states
+   */
+  setOptions(states) {
+    const optionsHtml = states.map(this.createOptionHtml).join('');
+
+    this.querySelector('datalist').insertAdjacentHTML('beforeend', optionsHtml);
+  }
 }
 
 customElements.define(String(DestinationView), DestinationView);

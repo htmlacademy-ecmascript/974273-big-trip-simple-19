@@ -110,6 +110,11 @@
  */
 
 /**
+ * @typedef DestinationViewState
+ * @prop {string} name
+ */
+
+/**
  * @typedef OfferToggleViewState
  * @prop {string} id
  * @prop {string} title
