@@ -35,13 +35,13 @@ export default class NewPointEditorPresenter extends Presenter {
     this.view.destinationView.setLabel(destination.name);
 
     // TODO: Обновить список предложений
-    this.updateOffersView(point.offerIds);
+    // this.updateOffersView(point.offerIds);
   }
 
-  /**
-   * @param {string[]} offerIds
-   */
-  updateOffersView(offerIds = []) { }
+  // /**
+  //  * @param {string[]} offerIds
+  //  */
+  // updateOffersView(offerIds = []) { }
 
   /**
    * @override
@@ -88,6 +88,6 @@ export default class NewPointEditorPresenter extends Presenter {
     this.view.destinationView.setLabel(pointTitleMap[pointType]);
 
     // TODO: Обновить список предложений
-    this.updateOffersView();
+    // this.updateOffersView();
   }
 }
