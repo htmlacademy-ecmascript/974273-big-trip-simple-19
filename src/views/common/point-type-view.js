@@ -1,4 +1,4 @@
-// TODO: Иконка-кнопка выбора типа транспорта на редакторе точки маршрута
+// NOTE: Иконка-кнопка выбора типа транспорта на редакторе точки маршрута
 
 import {pointIconMap} from '../../maps';
 import {html} from '../../utils';
@@ -11,11 +11,11 @@ export default class PointTypeView extends RadioGroupView {
 
     this.classList.add('event__type-wrapper');
 
-    // TODO: Слушатель 'change' для отрисовка иконок типа транспорта в нужном месте при переходе стрелками с клавиатуры по выпадающему меню.
+    // NOTE: Слушатель 'change' для отрисовка иконок типа транспорта в нужном месте при переходе стрелками с клавиатуры по выпадающему меню.
     this.addEventListener('change', this.handleChange);
-    // TODO: Слушатель клавиши 'esc' для закрытия меню типа транспорта и отмены закрытия всего редактора точки маршрута.
+    // NOTE: Слушатель клавиши 'esc' для закрытия меню типа транспорта и отмены закрытия всего редактора точки маршрута.
     this.addEventListener('keydown', this.handleKeyDown);
-    // TODO: Слушатель ухода фокуса или нажатия мышки в любом месте с меню тип транспорта, тогда выполняем функцию
+    // NOTE: Слушатель ухода фокуса или нажатия мышки в любом месте с меню тип транспорта, тогда выполняем функцию
     this.addEventListener('blur', this.handleBlur, true);
     this.addEventListener('pointerup', this.handlePointerUp);
   }
@@ -93,7 +93,7 @@ export default class PointTypeView extends RadioGroupView {
      */
     (this.querySelector('.event__type-toggle')).checked = true;
 
-    // TODO: Фокусирование типа транспорта при переходе стрелками с клавиатуры для активации выбора радиокнопки
+    // NOTE: Фокусирование типа транспорта при переходе стрелками с клавиатуры для активации выбора радиокнопки
     /**
      * @type {HTMLInputElement}
      */
@@ -111,6 +111,10 @@ export default class PointTypeView extends RadioGroupView {
    * @param {Event & {target: HTMLInputElement}} event
    */
   handleChange(event) {
+    // NOTE: предотвращаем вызов других слушателей события 'change', чтобы исключить сброс выбранных офферов (offers)
+    if (event.target.type === 'checkbox') {
+      return event.stopImmediatePropagation();
+    }
     this.setValue(event.target.value);
   }
 
@@ -118,13 +122,13 @@ export default class PointTypeView extends RadioGroupView {
    * @param {KeyboardEvent} event
    */
   handleKeyDown(event) {
-    // TODO: Проверка открытия меню типа транспорта ('.event__type-toggle:checked'), тогда закрытие.
+    // NOTE: Проверка открытия меню типа транспорта ('.event__type-toggle:checked'), тогда закрытие.
     if (event.key === 'Escape' && this.querySelector('.event__type-toggle:checked')) {
       event.stopPropagation();
       this.close();
     }
 
-    // TODO: Клавиша пробел, отлавливает проверкой
+    // NOTE: Клавиша пробел, отлавливает проверкой
     else if (event.key === ' ') {
       this.open();
     }

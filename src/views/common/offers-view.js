@@ -7,7 +7,6 @@ export default class OffersView extends View {
     super();
 
     this.classList.add('event__section', 'event__section--offers');
-    // this.classList.add('event__section--offers');
   }
 
   /**
@@ -36,7 +35,7 @@ export default class OffersView extends View {
           value="${state.id}" 
           ${state.checked ? 'checked' : ''}
         >
-				<label class="event__offer-label" for="${state.id}">
+				<label class="event__offer-label" for="event-offer-${state.id}">
 					<span class="event__offer-title">${state.title}</span>
 					&plus;&euro;&nbsp;
 					<span class="event__offer-price">${state.price}</span>
@@ -51,7 +50,16 @@ export default class OffersView extends View {
   setOptions(states) {
     const optionsHtml = states.map(this.createOptionHtml).join('');
 
-    this.querySelector('div').insertAdjacentHTML('beforeend', optionsHtml);
+    this.querySelector('div').innerHTML = optionsHtml;
+  }
+
+  getValues() {
+    /**
+     * @type {NodeListOf<HTMLInputElement>}
+     */
+    const views = this.querySelectorAll(':checked');
+
+    return [...views].map((view) => view.value);
   }
 }
 
