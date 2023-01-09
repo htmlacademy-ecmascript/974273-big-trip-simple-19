@@ -1,3 +1,5 @@
+// TODO: Кнопка создания новой точки маршрута
+
 import View from './view';
 import {html} from '../utils';
 import PointTypeView from './common/point-type-view';
@@ -24,7 +26,23 @@ export default class NewPointEditorView extends View {
     /**
      * @type {PointTypeView}
      */
+    // TODO: Предоставляем доступ презентора к методам и свойствам дочерней view (PointTypeView)
     this.pointTypeView = this.querySelector(String(PointTypeView));
+
+    /**
+     * @type {DestinationView}
+     */
+    this.destinationView = this.querySelector(String(DestinationView));
+
+    /**
+     * @type {OffersView}
+     */
+    this.offersView = this.querySelector(String(OffersView));
+
+    /**
+     * @type {DestinationDetailsView}
+     */
+    this.destinationDetailsView = this.querySelector(String(DestinationDetailsView));
   }
 
   /**

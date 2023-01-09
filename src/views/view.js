@@ -1,3 +1,5 @@
+// TODO: View базовая
+
 export default class View extends HTMLElement {
   constructor () {
     super();
