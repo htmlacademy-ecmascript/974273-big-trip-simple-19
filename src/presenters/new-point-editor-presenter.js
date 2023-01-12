@@ -42,6 +42,8 @@ export default class NewPointEditorPresenter extends Presenter {
     this.view.destinationView.setLabel(point.type);
     this.view.destinationView.setValue(destination.name);
 
+    // this.view.basePriceView.setValue(point);
+
     // NOTE: Обновить список предложений
     this.updateOffersView(point.offerIds);
     this.updateDestinationDetailsView(destination);

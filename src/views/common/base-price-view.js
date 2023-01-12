@@ -21,6 +21,14 @@ export default class BasePriceView extends View {
     <input class="event__input  event__input--price" id="event-price-1" type="text" name="event-price" value="">
 		`;
   }
+
+  setValue(state) {
+    // this.querySelector('.event__photos-tape').innerHTML = picturesHTML;
+    // /**
+    //  * @getAttribute {NodeListOf<HTMLInputElement>}
+    //  */
+    this.querySelector('.event__input--price').getAttribute('value', state.price);
+  }
 }
 
 customElements.define(String(BasePriceView), BasePriceView);
