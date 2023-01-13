@@ -41,8 +41,7 @@ export default class NewPointEditorPresenter extends Presenter {
     this.view.destinationView.setLabel(pointTitleMap[point.type]);
     this.view.destinationView.setLabel(point.type);
     this.view.destinationView.setValue(destination.name);
-
-    // this.view.basePriceView.setValue(point);
+    this.view.basePriceView.setValue(point.basePrice);
 
     // NOTE: Обновить список предложений
     this.updateOffersView(point.offerIds);
@@ -88,7 +87,7 @@ export default class NewPointEditorPresenter extends Presenter {
       point.destinationId = this.destinationsModel.item(0).id;
       point.startDate = new Date().toJSON();
       point.endDate = point.startDate;
-      point.basePrice = 100;
+      point.basePrice = this.pointsModel.findBy('type', PointType.TAXI).basePrice;
       point.offerIds = this.pointsModel.findBy('type', PointType.TAXI).offerIds;
 
       this.view.open();

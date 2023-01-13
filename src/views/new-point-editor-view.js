@@ -35,6 +35,11 @@ export default class NewPointEditorView extends View {
     this.destinationView = this.querySelector(String(DestinationView));
 
     /**
+     * @type {BasePriceView}
+     */
+    this.basePriceView = this.querySelector(String(BasePriceView));
+
+    /**
      * @type {OffersView}
      */
     this.offersView = this.querySelector(String(OffersView));
@@ -44,7 +49,6 @@ export default class NewPointEditorView extends View {
      */
     this.destinationDetailsView = this.querySelector(String(DestinationDetailsView));
 
-    this.basePriceView = this.querySelector(String(BasePriceView));
   }
 
   /**
