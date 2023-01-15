@@ -35,6 +35,11 @@ export default class NewPointEditorView extends View {
     this.destinationView = this.querySelector(String(DestinationView));
 
     /**
+     * @type {DatesView}
+     */
+    this.datesView = this.querySelector(String(DatesView));
+
+    /**
      * @type {BasePriceView}
      */
     this.basePriceView = this.querySelector(String(BasePriceView));
@@ -75,11 +80,14 @@ export default class NewPointEditorView extends View {
 
   open() {
     this.listView.prepend(this);
+    this.datesView.createCalendars();
+
     document.addEventListener('keydown', this);
   }
 
   close(notify = true) {
     this.remove();
+    this.datesView.destroyCalendars();
 
     document.removeEventListener('keydown', this);
 
