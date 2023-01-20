@@ -31,7 +31,7 @@ export default class DatesView extends View {
     this.classList.add('event__field-group');
     this.classList.add('event__field-group--time');
 
-    this.addEventListener('keydown', this.handleKeyDown);
+    this.addEventListener('keydown', this.handleKeyDown, true);
   }
 
   /**
@@ -53,9 +53,10 @@ export default class DatesView extends View {
    */
   setConfig(config) {
     const defaultConfig = {
-      allowInput: true,
+      // allowInput: true,
       enableTime: true,
-      monthSelectorType: 'static'
+      monthSelectorType: 'static',
+      static: true
     };
 
     // @ts-ignore
@@ -107,12 +108,12 @@ export default class DatesView extends View {
    */
   handleKeyDown(event) {
     // NOTE: предотвращаем вызов других слушателей события 'change'
-    if (event.key === 'Escape' && this.querySelector('.active')) {
+    if (event.key === 'Escape' && (this.#startDateCalendar.isOpen || this.#endDateCalendar.isOpen)) {
+      // NOTE: Закрытие по Esc после выбора даты
       event.stopImmediatePropagation();
 
-      this.querySelector('.active').classList.remove('active');
-      this.destroyCalendars();
-      this.createCalendars();
+      this.#startDateCalendar.close();
+      this.#endDateCalendar.close();
     }
   }
 }

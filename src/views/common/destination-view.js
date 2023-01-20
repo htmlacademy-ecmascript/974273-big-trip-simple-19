@@ -1,5 +1,4 @@
 // NOTE: View - список городов назначения
-// FIXME: Выполнить домашку.
 
 import View from '../view';
 import {html} from '../../utils';

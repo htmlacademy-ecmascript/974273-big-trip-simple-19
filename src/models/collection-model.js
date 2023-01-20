@@ -119,11 +119,13 @@ export default class CollectionModel extends Model {
   /**
    * @param {ItemAdapter} item
    */
+  // FIXME: Разобраться как работает
   async add(item) {
     const newItem = await this.#store.add(item.toJSON());
     const detail = this.#adapt(newItem);
 
     this.#items.push(newItem);
+    // NOTE: add - Обработчик события: создаем и добавляем в общую систему событий.
     this.dispatchEvent(new CustomEvent('add', {detail}));
 
     return detail;
@@ -132,12 +134,14 @@ export default class CollectionModel extends Model {
   /**
    * @param {ItemAdapter} item
    */
+  // FIXME: Разобраться как работает
   async update(item) {
     const newItem = await this.#store.update(item.toJSON());
     const index = this.findIndexById(item.id);
     const detail = {newItem: this.#adapt(newItem), oldItem: this.item(index)};
 
     this.#items.splice(index, 1, newItem);
+    // NOTE: update - Обработчик события: создаем и добавляем в общую систему событий.
     this.dispatchEvent(new CustomEvent('update', {detail}));
 
     return detail;
@@ -146,6 +150,7 @@ export default class CollectionModel extends Model {
   /**
    * @param {string} id
    */
+  // FIXME: Разобраться как работает
   async delete(id) {
     await this.#store.delete(id);
 
@@ -153,6 +158,7 @@ export default class CollectionModel extends Model {
     const detail = this.item(index);
 
     this.#items.splice(index, 1);
+    // NOTE: delete - Обработчик события: создаем и добавляем в общую систему событий.
     this.dispatchEvent(new CustomEvent('delete', {detail}));
 
     return detail;
