@@ -10,8 +10,11 @@ export default class PointView extends View {
   constructor (state) {
     super(state);
 
-    this.classList.add('trip-filters');
+    this.classList.add('trip-events__item');
+    this.dataset.id = state.id;
     this.setOffers(state.offers);
+
+    this.addEventListener('click', this.handleClick);
   }
 
   /**
@@ -67,6 +70,16 @@ export default class PointView extends View {
     const offersHtml = states.map(this.createOfferHtml).join('');
 
     this.querySelector('.event__selected-offers').innerHTML = offersHtml;
+  }
+
+  /**
+ * @param {MouseEvent & {target: Element}} event
+ */
+  handleClick(event) {
+    if (event.target.closest('.event__rollup-btn')) {
+      // NOTE: Создаем обработчик 'edit'
+      this.dispatchEvent(new CustomEvent('edit', {bubbles: true}));
+    }
   }
 }
 
