@@ -11,7 +11,6 @@ export default class PointView extends View {
     super(state);
 
     this.classList.add('trip-events__item');
-    // TODO: Добавить в блокнот
     this.dataset.id = state.id;
     this.setOffers(state.offers);
 
@@ -78,7 +77,7 @@ export default class PointView extends View {
  */
   handleClick(event) {
     if (event.target.closest('.event__rollup-btn')) {
-      // TODO: bubbles изучить
+      // NOTE: Создаем обработчик 'edit'
       this.dispatchEvent(new CustomEvent('edit', {bubbles: true}));
     }
   }

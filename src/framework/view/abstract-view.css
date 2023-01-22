@@ -1,4 +1,4 @@
-/* NOTE: базовый файл стилей */
+/* NOTE: базовый файл стилей для покачивания дом элемента */
 .shake {
   animation: shake 0.6s;
   position: relative;
