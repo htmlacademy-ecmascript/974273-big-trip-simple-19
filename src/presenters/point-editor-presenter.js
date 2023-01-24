@@ -4,9 +4,6 @@ import NewPointEditorPresenter from './new-point-editor-presenter';
  * @extends {NewPointEditorPresenter<PointEditorView>}
  */
 export default class PointEditorPresenter extends NewPointEditorPresenter {
-  constructor () {
-    super(...arguments);
-  }
 
   /**
    * @override
@@ -33,11 +30,31 @@ export default class PointEditorPresenter extends NewPointEditorPresenter {
     }
   }
 
+  async delete(point) {
+    await this.pointsModel.delete(point);
+  }
+
   /**
    * @override
    * @param {Event} event
    */
   async handleViewReset(event) {
     event.preventDefault();
+
+    this.view.awaitSave(true);
+
+    try {
+      const pointId = this.location.searchParams.get('id');
+
+      await this.delete(pointId);
+
+      this.view.close();
+    }
+
+    catch (exception) {
+      this.view.shake();
+    }
+
+    this.view.awaitSave(false);
   }
 }

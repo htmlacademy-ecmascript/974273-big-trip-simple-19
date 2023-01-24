@@ -39,7 +39,6 @@ export default class NewPointEditorPresenter extends Presenter {
     this.view.addEventListener('submit', this.handleViewSubmit.bind(this));
     this.view.addEventListener('reset', this.handleViewReset.bind(this));
     this.view.addEventListener('close', this.handleViewClose.bind(this));
-    // FIXME: Добавить обработчик для добавления новой точки
   }
 
   /**
@@ -115,7 +114,6 @@ export default class NewPointEditorPresenter extends Presenter {
    * @param {PointAdapter} point
    */
   async save(point) {
-    // await this.savePoint(point);
     await this.pointsModel.add(point);
   }
 
@@ -141,14 +139,11 @@ export default class NewPointEditorPresenter extends Presenter {
       point.basePrice = this.view.basePriceView.getValue();
       point.offerIds = this.view.offersView.getValues();
 
-      // await this.pointsModel.add(point);
       await this.save(point);
       this.view.close();
     }
 
     catch (exception) {
-      // console.log(exception);
-
       this.view.shake();
     }
 
@@ -159,6 +154,7 @@ export default class NewPointEditorPresenter extends Presenter {
    * @param {Event} event
    */
   handleViewReset(event) {
+    // NOTE: void - эмитация использования event, аналогично как event.preventDefault();
     void event;
     this.view.close();
   }
