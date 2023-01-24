@@ -17,6 +17,7 @@ export default class ListPresenter extends Presenter {
     this.pointsModel.addEventListener('sort', this.handlePointsModelSort.bind(this));
     this.pointsModel.addEventListener('add', this.handlePointsModelAdd.bind(this));
     this.pointsModel.addEventListener('update', this.handlePointsModelUpdate.bind(this));
+    this.pointsModel.addEventListener('delete', this.handlePointsModelDelete.bind(this));
   }
 
   updateView() {
@@ -27,8 +28,8 @@ export default class ListPresenter extends Presenter {
   }
 
   /**
- * @param {PointAdapter} point
- */
+   * @param {PointAdapter} point
+   */
   createPointViewState(point) {
     const destination = this.destinationsModel.findById(point.destinationId);
     const offersTypes = this.offerGroupsModel.findBy('id', point.type).items;
@@ -57,6 +58,7 @@ export default class ListPresenter extends Presenter {
   /**
    * @param {CustomEvent & {target: PointView}} event
    */
+  // NOTE: Добавляет '/edit' в адресную строку при открытии редактора точки
   handleViewEdit(event) {
     this.navigate('/edit', event.target.dataset);
   }
@@ -75,6 +77,10 @@ export default class ListPresenter extends Presenter {
   }
 
   handlePointsModelUpdate() {
+    this.updateView();
+  }
+
+  handlePointsModelDelete() {
     this.updateView();
   }
 }

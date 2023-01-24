@@ -1,4 +1,4 @@
-// TODO: Кнопка создания новой точки маршрута
+// NOTE: Кнопка создания новой точки маршрута
 
 import View from './view';
 import {html} from '../utils';

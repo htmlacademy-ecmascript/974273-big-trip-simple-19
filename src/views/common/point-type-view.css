@@ -1,4 +1,4 @@
-/* TODO: Фокус активация на <label> т.к. input скрыт */
+/* NOTE: Фокус активация на <label> т.к. input скрыт */
 
 .event__type-wrapper:focus-within .event__type-btn {
 	outline: 3px solid;

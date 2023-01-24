@@ -1,3 +1,4 @@
+import {deleteButtonTextMap} from '../maps';
 import {html} from '../utils';
 import NewPointEditorView from './new-point-editor-view';
 
@@ -8,7 +9,10 @@ export default class PointEditorView extends NewPointEditorView {
     this.pointView = null;
 
     this.awaitDelete(false);
+    // NOTE: Добавляем стрелку вверх на редакторе точки маршрута
     this.querySelector('header').insertAdjacentHTML('beforeend', this.createCloseButtonHtml());
+
+    this.addEventListener('click', this.handleClick);
   }
 
   open() {
@@ -37,7 +41,22 @@ export default class PointEditorView extends NewPointEditorView {
   /**
    * @param {boolean} flag
    */
-  awaitDelete(flag) { }
+  awaitDelete(flag) {
+    const text = deleteButtonTextMap[Number(flag)];
+
+    this.querySelector('[type="reset"]').textContent = text;
+
+    this.uiBlockerView.toggle(flag);
+  }
+
+  /**
+   * @param {MouseEvent & {target: Element}} event
+   */
+  handleClick(event) {
+    if (event.target.closest('.event__rollup-btn')) {
+      this.close();
+    }
+  }
 }
 
 customElements.define(String(PointEditorView), PointEditorView);

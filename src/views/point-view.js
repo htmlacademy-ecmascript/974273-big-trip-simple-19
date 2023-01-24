@@ -40,9 +40,7 @@ export default class PointView extends View {
           &euro;&nbsp;<span class="event__price-value">${state.basePrice}</span>
         </p>
         <h4 class="visually-hidden">Offers:</h4>
-        <ul class="event__selected-offers">
-          
-        </ul>
+        <ul class="event__selected-offers"></ul>
         <button class="event__rollup-btn" type="button">
           <span class="visually-hidden">Open event</span>
         </button>
@@ -73,8 +71,8 @@ export default class PointView extends View {
   }
 
   /**
- * @param {MouseEvent & {target: Element}} event
- */
+   * @param {MouseEvent & {target: Element}} event
+   */
   handleClick(event) {
     if (event.target.closest('.event__rollup-btn')) {
       // NOTE: Создаем обработчик 'edit'
