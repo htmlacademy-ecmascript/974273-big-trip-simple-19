@@ -112,6 +112,13 @@ export default class NewPointEditorView extends View {
   }
 
   /**
+   * @param {string} name
+   */
+  findByName(name) {
+    return this.querySelector('form').elements[name];
+  }
+
+  /**
    * @param {KeyboardEvent} event
    */
   handleEvent(event) {
