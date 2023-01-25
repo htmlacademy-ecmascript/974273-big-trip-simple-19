@@ -67,8 +67,6 @@ const emptyListView = document.querySelector('.trip-events__msg');
 const newPointEditorView = new NewPointEditorView(listView);
 const pointEditorView = new PointEditorView(listView);
 
-// const {log} = console;
-
 Promise.all(
   models.map((model) => model.ready())
 )
