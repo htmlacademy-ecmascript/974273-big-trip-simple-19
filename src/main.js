@@ -20,6 +20,7 @@ import {FilterType, SortType} from './enums';
 import FilterPresenter from './presenters/filter-presentor';
 import ListPresenter from './presenters/list-presentor';
 import SortPresenter from './presenters/sort-presenter';
+import EmptyListPresenter from './presenters/empty-list-presentor';
 import NewPointButtonPresenter from './presenters/new-point-button-presenter';
 import NewPointEditorPresenter from './presenters/new-point-editor-presenter';
 import PointEditorPresenter from './presenters/point-editor-presenter';
@@ -62,6 +63,7 @@ const newPointButtonView = document.querySelector('.trip-main__event-add-btn');
 const filterView = document.querySelector(String(FilterView));
 const sortView = document.querySelector(String(SortView));
 const listView = document.querySelector(String(ListView));
+const emptyListView = document.querySelector('.trip-events__msg');
 const newPointEditorView = new NewPointEditorView(listView);
 const pointEditorView = new PointEditorView(listView);
 
@@ -75,6 +77,7 @@ Promise.all(
     new FilterPresenter(filterView, models);
     new SortPresenter(sortView, models);
     new ListPresenter(listView, models);
+    new EmptyListPresenter(emptyListView, models);
     new NewPointEditorPresenter(newPointEditorView, models);
     new PointEditorPresenter(pointEditorView, models);
   })
