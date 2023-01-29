@@ -85,6 +85,7 @@ export default class NewPointEditorView extends View {
   open() {
     this.listView.prepend(this);
     this.datesView.createCalendars();
+    this.fadeInRight();
 
     document.addEventListener('keydown', this);
   }

@@ -26,6 +26,7 @@ export default class PointEditorView extends NewPointEditorView {
    */
   close() {
     this.replaceWith(this.pointView);
+    this.pointView?.fadeInLeft();
     this.pointView = null;
     super.close(...arguments);
   }
