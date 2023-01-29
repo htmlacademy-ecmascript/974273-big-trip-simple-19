@@ -1,3 +1,4 @@
+// DELETE: Удалить папку framework
 /**
  * Класс для отправки запросов к серверу
  */
@@ -6,7 +7,7 @@ export default class ApiService {
    * @param {string} endPoint Адрес сервера
    * @param {string} authorization Авторизационный токен
    */
-  constructor(endPoint, authorization) {
+  constructor (endPoint, authorization) {
     this._endPoint = endPoint;
     this._authorization = authorization;
   }

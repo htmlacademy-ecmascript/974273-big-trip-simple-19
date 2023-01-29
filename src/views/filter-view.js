@@ -21,6 +21,7 @@ export default class FilterView extends RadioGroupView {
           type="radio" 
           name="trip-filter" 
           value="${state.value}"
+          disabled="disabled"
         >
         <label 
           class="trip-filters__filter-label" 

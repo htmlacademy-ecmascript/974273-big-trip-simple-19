@@ -35,7 +35,7 @@ const pointsStore = new Store(`${BASE}/points`, AUTH);
 const pointsModel = new CollectionModel({
   store: pointsStore,
   adapt: (item) => new PointAdapter(item),
-  filter: filterCallbackMap[FilterType.FUTURE],
+  filter: filterCallbackMap[FilterType.EVERYTHING],
   sort: sortCallbackMap[SortType.DAY],
 });
 
@@ -70,7 +70,7 @@ const pointEditorView = new PointEditorView(listView);
 Promise.all(
   models.map((model) => model.ready())
 )
-  .then(async () => {
+  .then(() => {
     new NewPointButtonPresenter(newPointButtonView, models);
     new FilterPresenter(filterView, models);
     new SortPresenter(sortView, models);

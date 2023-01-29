@@ -98,8 +98,6 @@ export default class NewPointEditorPresenter extends Presenter {
       point.destinationId = this.destinationsModel.item(0).id;
       point.startDate = new Date().toJSON();
       point.endDate = point.startDate;
-      // point.basePrice = this.pointsModel.findBy('type', PointType.TAXI).basePrice;
-      // point.offerIds = this.pointsModel.findBy('type', PointType.TAXI).offerIds;
       point.basePrice = 100;
       point.offerIds = ['1'];
 
