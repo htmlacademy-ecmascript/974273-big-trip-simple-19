@@ -1,6 +1,9 @@
 import View from './view';
 import './ui-blocker-view.css';
 
+/**
+ * @implements {EventListenerObject}
+ */
 export default class UiBlockerView extends View {
   constructor () {
     super();
@@ -15,17 +18,17 @@ export default class UiBlockerView extends View {
     if (flag) {
       document.body.append(this);
       // NOTE: Обработчик блокировки нажатия любой клавиши при preloader
-      document.addEventListener('keydown', this.handleKeyDown);
+      document.addEventListener('keydown', this);
     } else {
       this.remove();
-      document.removeEventListener('keydown', this.handleKeyDown);
+      document.removeEventListener('keydown', this);
     }
   }
 
   /**
    * @param {KeyboardEvent} event
    */
-  handleKeyDown(event) {
+  handleEvent(event) {
     event.preventDefault();
   }
 
