@@ -1,5 +1,4 @@
-// TODO: View базовая
-import './view.css';
+// NOTE: View - базовая
 
 export default class View extends HTMLElement {
   constructor () {
@@ -14,10 +13,59 @@ export default class View extends HTMLElement {
     return '';
   }
 
-  shake() {
-    this.classList.add('shake');
+  // NOTE: Анимация - реализация потрясывания элемента
+  /**
+   * @param {KeyframeAnimationOptions} [options]
+   */
+  shake(options) {
+    const keyframes = {
+      transform: [0, -5, 0, 5, 0].map((value) => `translateX(${value}px)`)
+    };
 
-    this.addEventListener('animationend', () => this.classList.remove('shake'), {once: true});
+    return this.animate(keyframes, {
+      duration: 150,
+      iterations: 4,
+      ...options
+    });
+  }
+
+  // NOTE: Анимация - Добавления и исчезновения
+  /**
+   * @param {KeyframeAnimationOptions} [options]
+   * @param {PropertyIndexedKeyframes} [extraKeyframes]
+   */
+  fadeIn(options, extraKeyframes) {
+    const keyframes = {
+      opacity: [0, 1],
+      ...extraKeyframes
+    };
+
+    return this.animate(keyframes, {
+      duration: 300,
+      easing: 'ease',
+      fill: 'both',
+      ...options
+    });
+  }
+
+  // NOTE: Анимация - смещение влево
+  /**
+   * @param {KeyframeAnimationOptions} [options]
+   */
+  fadeInLeft(options) {
+    return this.fadeIn(options, {
+      transform: ['translateX(40px)', 'none']
+    });
+  }
+
+  // NOTE: Анимация - смещение вправа
+  /**
+   * @param {KeyframeAnimationOptions} [options]
+   */
+  fadeInRight(options) {
+    return this.fadeIn(options, {
+      transform: ['translateX(-40px)', 'none']
+    });
   }
 
   static get localName() {
