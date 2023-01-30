@@ -15,11 +15,7 @@ export default class NewPointButtonPresenter extends Presenter {
    * @override
    */
   handleNavigation() {
-    if (this.location.pathname === '/new') {
-      this.view.disabled = true;
-    } else {
-      this.view.disabled = false;
-    }
+    this.view.disabled = (this.location.pathname === '/new');
   }
 
   handleViewClick() {

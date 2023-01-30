@@ -28,8 +28,7 @@ export default class DatesView extends View {
   constructor () {
     super();
 
-    this.classList.add('event__field-group');
-    this.classList.add('event__field-group--time');
+    this.classList.add('event__field-group', 'event__field-group--time');
 
     this.addEventListener('keydown', this.handleKeyDown, true);
   }
@@ -44,7 +43,7 @@ export default class DatesView extends View {
       &mdash;
       <label class="visually-hidden" for="event-end-time-1">To</label>
       <input class="event__input  event__input--time" id="event-end-time-1" type="text" name="date_to">
-		`;
+	 `;
   }
 
   /**
