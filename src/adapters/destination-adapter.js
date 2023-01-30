@@ -1,4 +1,3 @@
-// идентификаторы - строками
 import Adapter from './adapter';
 
 export default class DestinationAdapter extends Adapter {

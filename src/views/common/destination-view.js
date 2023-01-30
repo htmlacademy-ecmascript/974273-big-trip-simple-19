@@ -1,5 +1,3 @@
-// NOTE: View - список городов назначения
-
 import View from '../view';
 import {html} from '../../utils';
 

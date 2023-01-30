@@ -17,7 +17,6 @@ export default class UiBlockerView extends View {
   toggle(flag) {
     if (flag) {
       document.body.append(this);
-      // NOTE: Обработчик блокировки нажатия любой клавиши при preloader
       document.addEventListener('keydown', this);
     } else {
       this.remove();

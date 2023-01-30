@@ -65,14 +65,6 @@ export default class PointView extends View {
     `;
   }
 
-  // createEmptyOfferHtml() {
-  //   return html`
-  //     <li class="event__offer">
-  //       <span class="event__offer-title">No additional offers</span>
-  //     </li>
-  //   `;
-  // }
-
   /**
    * @param {OfferViewState[]} states
    */
@@ -89,7 +81,6 @@ export default class PointView extends View {
    */
   handleClick(event) {
     if (event.target.closest('.event__rollup-btn')) {
-      // NOTE: Создаем обработчик 'edit'
       this.dispatchEvent(new CustomEvent('edit', {bubbles: true}));
     }
   }

@@ -9,7 +9,6 @@ export default class PointEditorView extends NewPointEditorView {
     this.pointView = null;
 
     this.awaitDelete(false);
-    // NOTE: Добавляем стрелку вверх на редакторе точки маршрута
     this.querySelector('header').insertAdjacentHTML('beforeend', this.createCloseButtonHtml());
 
     this.addEventListener('click', this.handleClick);
@@ -26,6 +25,7 @@ export default class PointEditorView extends NewPointEditorView {
    */
   close() {
     this.replaceWith(this.pointView);
+    this.pointView?.fadeInLeft();
     this.pointView = null;
     super.close(...arguments);
   }

@@ -1,5 +1,3 @@
-// NOTE: View - базовая
-
 export default class View extends HTMLElement {
   constructor () {
     super();
@@ -13,7 +11,6 @@ export default class View extends HTMLElement {
     return '';
   }
 
-  // NOTE: Анимация - реализация потрясывания элемента
   /**
    * @param {KeyframeAnimationOptions} [options]
    */
@@ -29,7 +26,6 @@ export default class View extends HTMLElement {
     });
   }
 
-  // NOTE: Анимация - Добавления и исчезновения
   /**
    * @param {KeyframeAnimationOptions} [options]
    * @param {PropertyIndexedKeyframes} [extraKeyframes]
@@ -48,7 +44,6 @@ export default class View extends HTMLElement {
     });
   }
 
-  // NOTE: Анимация - смещение влево
   /**
    * @param {KeyframeAnimationOptions} [options]
    */
@@ -58,7 +53,6 @@ export default class View extends HTMLElement {
     });
   }
 
-  // NOTE: Анимация - смещение вправа
   /**
    * @param {KeyframeAnimationOptions} [options]
    */

@@ -11,15 +11,11 @@ export default class NewPointEditorPresenter extends Presenter {
   constructor () {
     super(...arguments);
 
-    // NOTE: Преобразование объекта pointTitleMap в список из объектов для view PointTypeView
     const pointTypeOptions =
       Object.entries(pointTitleMap).map(([value, title]) => ({title, value}));
-    // NOTE: Отрисовываем список типа транспорта на странице
     this.view.pointTypeView.setOptions(pointTypeOptions);
-    // NOTE: Выбор типа транспорта по умолчанию при загрузке страницы
     this.view.pointTypeView.setValue(PointType.BUS);
 
-    // NOTE: Преобразование списка объектов destinationsModel в список из объектов для view DestinationView
     const pointDestinationOptions = this.destinationsModel.listAll().map(({name}) => ({title: '', value: name}));
 
     this.view.destinationView.setOptions(pointDestinationOptions);
@@ -27,9 +23,6 @@ export default class NewPointEditorPresenter extends Presenter {
 
     this.view.pointTypeView.addEventListener('change', this.handlePointTypeViewChange.bind(this));
 
-    // NOTE: Формат даты по ТЗ
-    // NOTE: Неделя начинается в понедельник
-    // NOTE: 24 часа вместо AM/PM
     this.view.datesView.setConfig({
       dateFormat: 'd/m/y H:i',
       locale: {firstDayOfWeek: 1},
@@ -50,11 +43,10 @@ export default class NewPointEditorPresenter extends Presenter {
     this.view.pointTypeView.setValue(point.type);
     this.view.destinationView.setLabel(pointTitleMap[point.type]);
     this.view.destinationView.setLabel(point.type);
-    this.view.destinationView.setValue(destination.name);
+    this.view.destinationView.setValue(destination?.name ?? '');
     this.view.datesView.setValues([point.startDate, point.endDate]);
     this.view.basePriceView.setValue(point.basePrice);
 
-    // NOTE: Обновить список предложений
     this.updateOffersView(point.offerIds);
     this.updateDestinationDetailsView(destination);
   }
@@ -95,11 +87,6 @@ export default class NewPointEditorPresenter extends Presenter {
       const point = this.pointsModel.item();
 
       point.type = PointType.TAXI;
-      point.destinationId = this.destinationsModel.item(0).id;
-      point.startDate = new Date().toJSON();
-      point.endDate = point.startDate;
-      point.basePrice = 100;
-      point.offerIds = ['1'];
 
       this.view.open();
 
@@ -120,7 +107,6 @@ export default class NewPointEditorPresenter extends Presenter {
   /**
    * @param {SubmitEvent} event
    */
-  // NOTE: Добавления новой точки - handleViewSubmit
   async handleViewSubmit(event) {
     event.preventDefault();
 
@@ -145,7 +131,6 @@ export default class NewPointEditorPresenter extends Presenter {
 
     catch (exception) {
       this.view.shake();
-      // FIXME: cause - разобраться
       if (exception.cause?.error) {
         const [{fieldName}] = exception.cause.error;
 
@@ -160,7 +145,6 @@ export default class NewPointEditorPresenter extends Presenter {
    * @param {Event} event
    */
   handleViewReset(event) {
-    // NOTE: void - эмитация использования event, аналогично как event.preventDefault();
     void event;
     this.view.close();
   }
@@ -174,7 +158,6 @@ export default class NewPointEditorPresenter extends Presenter {
 
     this.view.destinationView.setLabel(pointTitleMap[pointType]);
 
-    // NOTE: Обновить список предложений
     this.updateOffersView();
   }
 

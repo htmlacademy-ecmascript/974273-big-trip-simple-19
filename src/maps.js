@@ -13,7 +13,6 @@ export const filterCallbackMap = {
   [FilterType.FUTURE]: (elem) => elem.endDateAsNumber >= Date.now()
 };
 
-// NOTE: Текст при отсутствии точек маршрута
 export const emptyListTextMap = {
   [FilterType.EVERYTHING]: 'Click New Event to create your first point',
   [FilterType.FUTURE]: 'There are no future events now'

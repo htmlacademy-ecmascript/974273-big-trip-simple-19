@@ -2,8 +2,8 @@ import View from './view';
 
 export default class RadioGroupView extends View {
   /**
-  * @param {string} value
-  */
+   * @param {string} value
+   */
   setValue(value) {
     /**
      * @type {HTMLInputElement}
@@ -34,8 +34,8 @@ export default class RadioGroupView extends View {
   setDisability(flags) {
 
     /**
-    * @type {NodeListOf<HTMLInputElement>}
-    */
+     * @type {NodeListOf<HTMLInputElement>}
+     */
     (this.querySelectorAll('[type="radio"]')).forEach((view, index) => {
       view.disabled = flags[index];
     });
