@@ -1,5 +1,3 @@
-// NOTE: Кнопка создания новой точки маршрута
-
 import View from './view';
 import {html} from '../utils';
 import PointTypeView from './common/point-type-view';
@@ -18,17 +16,16 @@ export default class NewPointEditorView extends View {
   constructor (listView) {
     super();
 
+    this.classList.add('trip-events__item', 'trip-events__item--edit');
+
     /**
      * @type {ListView}
      */
     this.listView = listView;
 
-    this.classList.add('trip-events__item');
-
     /**
      * @type {PointTypeView}
      */
-    // NOTE: Доступ презентора к методам и свойствам дочерней view (PointTypeView)
     this.pointTypeView = this.querySelector(String(PointTypeView));
 
     /**

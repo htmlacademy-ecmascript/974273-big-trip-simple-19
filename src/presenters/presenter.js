@@ -7,7 +7,7 @@ export default class Presenter {
 
     /**
      * @type {View}
-    */
+     */
     this.view = view;
 
     /**
@@ -22,7 +22,7 @@ export default class Presenter {
 
     /**
      * @type {CollectionModel<OfferGroup,OfferGroupAdapter>}
-    */
+     */
     this.offerGroupsModel = offerGroupsModel;
 
     window.addEventListener('popstate', this.handleWindowPopState.bind(this));

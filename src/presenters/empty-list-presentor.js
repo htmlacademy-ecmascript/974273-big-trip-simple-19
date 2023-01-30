@@ -1,5 +1,3 @@
-// NOTE: Добавления текста при отсутствии точек маршрута
-
 import {emptyListTextMap, filterCallbackMap} from '../maps';
 import {findKey} from '../utils';
 import Presenter from './presenter';
@@ -11,7 +9,6 @@ export default class EmptyListPresenter extends Presenter {
   constructor () {
     super(...arguments);
 
-    // NOTE: Пользовательские события
     this.pointsModel.addEventListener('add', this.handlePointsModelAdd.bind(this));
     this.pointsModel.addEventListener('update', this.handlePointsModelUpdate.bind(this));
     this.pointsModel.addEventListener('delete', this.handlePointsModelDelete.bind(this));
@@ -19,17 +16,12 @@ export default class EmptyListPresenter extends Presenter {
   }
 
   updateView() {
-    // NOTE: Находим массив с точками маршрута
     const points = this.pointsModel.list();
-    // NOTE: Находим свойство
     const filter = this.pointsModel.getFilter();
-    // NOTE: Название выбранного фильтра
     const filterType = findKey(filterCallbackMap, filter);
 
-    // NOTE: Прячем текст по условию
     this.view.hidden = (this.location.pathname === '/new') || Boolean(points.length);
 
-    // NOTE: Выводим текста при не выполнении условия.
     this.view.textContent = emptyListTextMap[filterType];
   }
 

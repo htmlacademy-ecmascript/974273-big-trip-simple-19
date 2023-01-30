@@ -48,12 +48,10 @@ export default class DatesView extends View {
   }
 
   /**
-   *
    * @param {CalendarConfig} config;
    */
   setConfig(config) {
     const defaultConfig = {
-      // allowInput: true,
       enableTime: true,
       monthSelectorType: 'static',
       static: true
@@ -86,7 +84,6 @@ export default class DatesView extends View {
   }
 
   /**
-   *
    *  @param {string[]} values;
    */
   setValues(values) {
@@ -107,9 +104,7 @@ export default class DatesView extends View {
    * @param {KeyboardEvent} event
    */
   handleKeyDown(event) {
-    // NOTE: предотвращаем вызов других слушателей события 'change'
     if (event.key === 'Escape' && (this.#startDateCalendar.isOpen || this.#endDateCalendar.isOpen)) {
-      // NOTE: Закрытие по Esc после выбора даты
       event.stopImmediatePropagation();
 
       this.#startDateCalendar.close();

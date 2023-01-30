@@ -1,5 +1,4 @@
 import View from './view';
-// import {html} from '../utils';
 import PointView from './point-view';
 
 export default class ListView extends View {

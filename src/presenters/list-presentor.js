@@ -29,9 +29,7 @@ export default class ListPresenter extends Presenter {
 
     const pointViews = this.view.setItems(pointViewStates);
 
-    // NOTE: Условие выбора применения анимации к одной точке или ко всем
     if (targetPoint) {
-      // NOTE: targetPoint - метод передаваемый аргументом
       this.view.findById(targetPoint.id)?.fadeInLeft();
     } else {
       pointViews.forEach((pointView, index) => {
@@ -71,7 +69,6 @@ export default class ListPresenter extends Presenter {
   /**
    * @param {CustomEvent & {target: PointView}} event
    */
-  // NOTE: Добавляет '/edit' в адресную строку при открытии редактора точки
   handleViewEdit(event) {
     this.navigate('/edit', event.target.dataset);
   }

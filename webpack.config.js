@@ -1,6 +1,5 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
-//NOTE: Импортируем  палагин для минификации
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
@@ -29,7 +28,6 @@ module.exports = {
       }
     ],
   },
-  // NOTE: Свойство для отмены минификации классов, отмена ужимания классов заканчивающиеся на View
   optimization: {
     minimizer: [
       new TerserPlugin({

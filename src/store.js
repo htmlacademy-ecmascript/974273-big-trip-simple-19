@@ -47,9 +47,9 @@ export default class Store {
   }
 
   /**
-  * @param {string} id
-  * @return {Promise<string>}
-  */
+   * @param {string} id
+   * @return {Promise<string>}
+   */
   delete(id) {
     return this.request(`/${id}`, {
       method: 'delete'

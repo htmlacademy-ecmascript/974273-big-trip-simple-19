@@ -1,4 +1,3 @@
-
 import {FilterType} from '../enums';
 import {filterTitleMap, filterCallbackMap} from '../maps';
 import {findKey} from '../utils';
@@ -38,7 +37,7 @@ export default class FilterPresenter extends Presenter {
     this.view.setDisability(flags);
   }
 
-  handleNavigateon() {
+  handleNavigation() {
     if (this.location.pathname === '/new') {
       this.pointsModel.setFilter(filterCallbackMap[FilterType.EVERYTHING]);
 
