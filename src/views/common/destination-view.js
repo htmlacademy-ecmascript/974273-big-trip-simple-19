@@ -5,13 +5,12 @@ export default class DestinationView extends View {
   constructor () {
     super();
 
-    this.classList.add('event__field-group');
-    this.classList.add('event__field-group--destination');
+    this.classList.add('event__field-group', 'event__field-group--destination');
   }
 
   /**
-    * @param {string} value
-    */
+   * @param {string} value
+   */
   setValue(value) {
     this.querySelector('input').value = value;
   }
@@ -21,8 +20,8 @@ export default class DestinationView extends View {
   }
 
   /**
-    * @param {string} label
-    */
+   * @param {string} label
+   */
   setLabel(label) {
     this.querySelector('label').textContent = label;
   }
@@ -35,7 +34,7 @@ export default class DestinationView extends View {
       <label class="event__label  event__type-output" for="event-destination-1"></label>
       <input class="event__input  event__input--destination" id="event-destination-1" type="text" name="destination" list="destination-list-1">
       <datalist id="destination-list-1"></datalist>
-		`;
+	 `;
   }
 
   /**
@@ -44,7 +43,7 @@ export default class DestinationView extends View {
   createOptionHtml(state) {
     return html`
       <option value="${state.value}"></option>
-    `;
+   `;
   }
 
   /**

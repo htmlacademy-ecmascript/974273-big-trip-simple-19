@@ -36,7 +36,8 @@ export default class FilterView extends RadioGroupView {
    * @param {OptionViewState[]} states
    */
   setOptions(states) {
-    this.innerHTML = states.map((state) => this.createOptionHtml(state)).join('');
+    // this.innerHTML = states.map((state) => this.createOptionHtml(state)).join('');
+    this.innerHTML = states.map(this.createOptionHtml).join('');
   }
 }
 

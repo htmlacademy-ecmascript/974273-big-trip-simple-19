@@ -10,7 +10,7 @@ export const filterTitleMap = {
  */
 export const filterCallbackMap = {
   [FilterType.EVERYTHING]: () => true,
-  [FilterType.FUTURE]: (elem) => elem.endDateAsNumber >= Date.now()
+  [FilterType.FUTURE]: (point) => point.endDateAsNumber >= Date.now()
 };
 
 export const emptyListTextMap = {

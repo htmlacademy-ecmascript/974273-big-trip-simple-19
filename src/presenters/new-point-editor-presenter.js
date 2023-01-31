@@ -14,12 +14,11 @@ export default class NewPointEditorPresenter extends Presenter {
     const pointTypeOptions =
       Object.entries(pointTitleMap).map(([value, title]) => ({title, value}));
     this.view.pointTypeView.setOptions(pointTypeOptions);
-    this.view.pointTypeView.setValue(PointType.BUS);
 
     const pointDestinationOptions = this.destinationsModel.listAll().map(({name}) => ({title: '', value: name}));
 
     this.view.destinationView.setOptions(pointDestinationOptions);
-    this.view.destinationView.addEventListener('input', this.handleDestinationValueInput.bind(this));
+    this.view.destinationView.addEventListener('input', this.handleDestinationViewInput.bind(this));
 
     this.view.pointTypeView.addEventListener('change', this.handlePointTypeViewChange.bind(this));
 
@@ -161,7 +160,7 @@ export default class NewPointEditorPresenter extends Presenter {
     this.updateOffersView();
   }
 
-  handleDestinationValueInput() {
+  handleDestinationViewInput() {
     const destinationName = this.view.destinationView.getValue();
     const destination = this.destinationsModel.findBy('name', destinationName);
 

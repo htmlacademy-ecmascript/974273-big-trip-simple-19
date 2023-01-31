@@ -46,7 +46,7 @@ export default class PointTypeView extends RadioGroupView {
           <legend class="visually-hidden">Event type</legend>
         </fieldset>
       </div>
-		`;
+	 `;
   }
 
   /**
@@ -60,8 +60,7 @@ export default class PointTypeView extends RadioGroupView {
           class="event__type-input  visually-hidden" 
           type="radio" 
           name="event-type" 
-          value="${state.value}"
-        >
+          value="${state.value}">
         <label 
           class="event__type-label  
           event__type-label--${state.value}" 
@@ -70,7 +69,7 @@ export default class PointTypeView extends RadioGroupView {
           ${state.title}
         </label>
       </div>
-    `;
+   `;
   }
 
   /**

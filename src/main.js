@@ -1,7 +1,5 @@
 import FilterView from './views/filter-view';
-import './views/sort-view';
 import NewPointEditorView from './views/new-point-editor-view';
-import './views/point-view';
 import ListView from './views/list-view';
 import SortView from './views/sort-view';
 import PointEditorView from './views/point-editor-view';
@@ -17,10 +15,10 @@ import OfferGroupAdapter from './adapters/offer-group-adapter';
 import {filterCallbackMap, sortCallbackMap} from './maps';
 import {FilterType, SortType} from './enums';
 
-import FilterPresenter from './presenters/filter-presentor';
-import ListPresenter from './presenters/list-presentor';
+import FilterPresenter from './presenters/filter-presenter';
+import ListPresenter from './presenters/list-presenter';
 import SortPresenter from './presenters/sort-presenter';
-import EmptyListPresenter from './presenters/empty-list-presentor';
+import EmptyListPresenter from './presenters/empty-list-presenter';
 import NewPointButtonPresenter from './presenters/new-point-button-presenter';
 import NewPointEditorPresenter from './presenters/new-point-editor-presenter';
 import PointEditorPresenter from './presenters/point-editor-presenter';

@@ -5,8 +5,7 @@ export default class BasePriceView extends View {
   constructor () {
     super();
 
-    this.classList.add('event__field-group');
-    this.classList.add('event__field-group--price');
+    this.classList.add('event__field-group', 'event__field-group--price');
   }
 
   /**
@@ -30,13 +29,13 @@ export default class BasePriceView extends View {
         &euro;
       </label>
       <input 
-      class="event__input  event__input--price" 
+        class="event__input  event__input--price" 
         id="event-price-1" 
         type="number" 
         name="base_price"
         min="1"
         max="10000">
-		`;
+	 `;
   }
 }
 

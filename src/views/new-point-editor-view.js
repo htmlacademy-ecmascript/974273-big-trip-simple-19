@@ -62,21 +62,21 @@ export default class NewPointEditorView extends View {
    */
   createHtml() {
     return html`
-		<form class="event event--edit" action="#" method="post" novalidate>
-			<header class="event__header">
-				<${PointTypeView}></${PointTypeView}>
-				<${DestinationView}></${DestinationView}>
-				<${DatesView}></${DatesView}>
-				<${BasePriceView}></${BasePriceView}>
-				<button class="event__save-btn  btn  btn--blue" type="submit">Save</button>
-				<button class="event__reset-btn" type="reset">Cancel</button>
-			</header>
-			<section class="event__details">
-				<${OffersView}></${OffersView}>
-				<${DestinationDetailsView}></${DestinationDetailsView}>
-			</section>
-		</form>
-		`;
+      <form class="event event--edit" action="#" method="post" novalidate>
+        <header class="event__header">
+          <${PointTypeView}></${PointTypeView}>
+          <${DestinationView}></${DestinationView}>
+          <${DatesView}></${DatesView}>
+          <${BasePriceView}></${BasePriceView}>
+          <button class="event__save-btn  btn  btn--blue" type="submit">Save</button>
+          <button class="event__reset-btn" type="reset">Cancel</button>
+        </header>
+        <section class="event__details">
+          <${OffersView}></${OffersView}>
+          <${DestinationDetailsView}></${DestinationDetailsView}>
+        </section>
+      </form>
+	 `;
   }
 
   open() {
