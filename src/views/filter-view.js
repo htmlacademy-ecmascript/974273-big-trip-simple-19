@@ -5,6 +5,7 @@ export default class FilterView extends RadioGroupView {
   constructor () {
     super();
 
+    // NOTE: Класс кастомного тега, родительского элемента
     this.classList.add('trip-filters');
   }
 
@@ -12,6 +13,7 @@ export default class FilterView extends RadioGroupView {
    * @param {OptionViewState} state
    */
   createOptionHtml(state) {
+    // NOTE: html описание: https://doka.guide/js/template-strings/#tegovyy-shablon
     return html`
       <div class="trip-filters__filter">
         <input
@@ -40,4 +42,5 @@ export default class FilterView extends RadioGroupView {
   }
 }
 
+// NOTE: customElements.define() - производит регистрацию кастомного элемента в DOM дереве.
 customElements.define(String(FilterView), FilterView);
