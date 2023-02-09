@@ -1,7 +1,7 @@
-// NOTE: Файл
+// NOTE: urils.js файл вспомогательных функций
 
-// NOTE: Пакет "he" для безопасности кода от хакеров
-// NOTE: Функция {escape} пакета "he" для экранирования html кода для безопасности
+// NOTE: "he" пакет для безопасности кода от хакеров
+// NOTE: {escape} функция из пакета "he" для экранирования html кода для безопасности
 // NOTE: {escape} Эта функция принимает строку текста и экранирует ее для использования в текстовом контексте в документах XML или HTML. Экранируются только следующие символы: &, <, >, ", ', и `.
 import {escape} from 'he';
 import dayjs from 'dayjs';
@@ -10,6 +10,8 @@ import dayjs from 'dayjs';
  * @param {TemplateStringsArray} strings
  * @param {...*} values
  */
+// NOTE: html - функция безопасного использования HTML, экранирует коды вставленные в разметку
+// NOTE: html - функция, которая позволяет разбирать шаблонную строку.
 export const html = (strings, ...values) => strings.reduce((before, after, index) => {
   const value = values[index - 1];
 

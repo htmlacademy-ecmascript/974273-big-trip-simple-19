@@ -1,3 +1,6 @@
+// NOTE: Базовая вьюшка
+// NOTE: Наследует глобальный класс "HTMLElement", который помогает создавать ДОМ элементы и управлять ими.
+
 export default class View extends HTMLElement {
   constructor () {
     super();
@@ -5,6 +8,7 @@ export default class View extends HTMLElement {
     this.insertAdjacentHTML('beforeend', this.createHtml(...arguments));
   }
 
+  // NOTE: createHtml() Метод промежуточный для вставки в дом дополнительной разметки вьюшек
   createHtml() {
     void arguments;
 
@@ -62,10 +66,12 @@ export default class View extends HTMLElement {
     });
   }
 
+  // NOTE: localName() - метод для преобразования названия класса view в камелкасе.
   static get localName() {
     return this.name.replace(/(?!^)[A-Z]/g, '-$&').toLowerCase();
   }
 
+  // NOTE: toString() - метод для преобразования название класса view в камелкасе.
   static toString() {
     return this.localName;
   }
