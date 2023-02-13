@@ -1,3 +1,5 @@
+// NOTE: Новая точка маршрута
+// NOTE: Редактор точки маршрута
 import View from './view';
 import {html} from '../utils';
 import PointTypeView from './common/point-type-view';

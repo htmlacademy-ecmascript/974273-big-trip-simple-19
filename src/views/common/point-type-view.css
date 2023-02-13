@@ -1,3 +1,5 @@
 .event__type-wrapper:focus-within .event__type-btn {
+	/* Обводка, не влияет на размеры элемента,
+		можно отодвинуть от границ на любое расстояние. */
 	outline: 3px solid;
 }

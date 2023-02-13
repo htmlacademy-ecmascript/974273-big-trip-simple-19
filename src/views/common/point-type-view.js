@@ -1,3 +1,4 @@
+// NOTE: Тип, выбор транспортного средства
 import {pointIconMap} from '../../maps';
 import {html} from '../../utils';
 import RadioGroupView from '../radio-group-view';

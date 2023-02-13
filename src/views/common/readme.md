@@ -1,0 +1,1 @@
+common - общая папка компонентов (файлов) для файла new-point-editor-view.js

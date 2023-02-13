@@ -1,3 +1,4 @@
+// NOTE: Ниже импорты (5 шт.) сразу отрисовывают Вьюшки в разметке страницы
 import FilterView from './views/filter-view';
 import NewPointEditorView from './views/new-point-editor-view';
 import ListView from './views/list-view';
