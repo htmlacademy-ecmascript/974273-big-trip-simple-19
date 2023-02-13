@@ -8,7 +8,7 @@ export default class View extends HTMLElement {
     this.insertAdjacentHTML('beforeend', this.createHtml(...arguments));
   }
 
-  // NOTE: createHtml() Метод промежуточный для вставки в дом дополнительной разметки вьюшек
+  // NOTE: createHtml() Метод промежуточный для вставки по необходимости в дом дерево дополнительной разметки вьюшки
   createHtml() {
     void arguments;
 
@@ -66,12 +66,13 @@ export default class View extends HTMLElement {
     });
   }
 
-  // NOTE: localName() - метод для преобразования названия класса view в камелкасе.
+  // NOTE: localName() - метод для преобразования названия класса js view в нижнем регистре через дефис.
   static get localName() {
     return this.name.replace(/(?!^)[A-Z]/g, '-$&').toLowerCase();
   }
 
-  // NOTE: toString() - метод для преобразования название класса view в камелкасе.
+  // NOTE: toString() - метод вызывается js при приведении объекта к строке
+  // NOTE: метод возвращает то, что мы в него зашили, а именно localName()
   static toString() {
     return this.localName;
   }
