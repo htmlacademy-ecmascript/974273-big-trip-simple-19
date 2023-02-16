@@ -1,6 +1,8 @@
 // NOTE: Сервер, запрос, ответ, работа
 
 /**
+ * Объявлеяем дженерик (шаблонный тип данных) - Item
+ * Item - список объектов
  * @template Item
  */
 export default class Store {
@@ -58,17 +60,24 @@ export default class Store {
     });
   }
 
+  // NOTE: Запрос на сервер
   /**
+   * path - путь на сервер
    * @param {string} path
+   * RequestInit - запрос инициализации
    * @param {RequestInit} options
    */
+  // NOTE: options = {} аргумент не обязательный, поэтому присваеваем пустой объект
   async request(path, options = {}) {
+    // NOTE: headers - объект с заголовками которые будем передавать на сервер.
     const headers = {
       'content-type': 'application/json',
       'authorization': this.#auth,
+      // NOTE: в объект ...options подмешиваем свайства объекта headers
       ...options.headers,
     };
 
+    // NOTE: ответ с сервера
     const response = await fetch(this.#base + path, {...options, headers});
     const {assert, parse} = /** @type {typeof Store} */ (this.constructor);
 
@@ -77,11 +86,14 @@ export default class Store {
     return parse(response);
   }
 
+  // NOTE: ответ - проверка на ошибку
   /**
    * @param {Response} response
    */
   static async assert(response) {
+    // NOTE: если response не ОК, выкидываем ошибку throw new Error...
     if (!response.ok) {
+      // NOTE: message - текст ошибки
       const message = `${response.status} - ${response.statusText}`;
 
       throw new Error(message, {
