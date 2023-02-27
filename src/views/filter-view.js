@@ -14,6 +14,15 @@ export default class FilterView extends RadioGroupView {
    */
   createOptionHtml(state) {
     // NOTE: html описание: https://doka.guide/js/template-strings/#tegovyy-shablon
+    // NOTE: html кастомная функция для отображеия кода в DOM дереве
+    // NOTE: html она приходит из файла utils.js
+    // NOTE: html - функция безопасного использования HTML, экранирует коды вставленные в разметку
+    // NOTE: html - функция, которая позволяет разбирать шаблонную строку.
+    // export const html = (strings, ...values) => strings.reduce((before, after, index) => {
+    //   const value = values[index - 1];
+
+    //   return before + escape(String(value)) + after;
+    // });
     return html`
       <div class="trip-filters__filter">
         <input
@@ -43,4 +52,7 @@ export default class FilterView extends RadioGroupView {
 }
 
 // NOTE: customElements.define() - производит регистрацию кастомного элемента в DOM дереве.
+// NOTE: customElements.define() - первый аргумент это название вайла и тега в разметке
+// NOTE: customElements.define() - в данном случае встроенным методом String(FilterView) мы приводим первый аргумент к нужному виду
+// NOTE: customElements.define() - второй аргумент это название класса в котором будет создан DOM элемент
 customElements.define(String(FilterView), FilterView);

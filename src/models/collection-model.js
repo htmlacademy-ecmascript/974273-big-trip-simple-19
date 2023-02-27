@@ -1,3 +1,6 @@
+// NOTE: collection-model.js работа с коллекциями объектов
+// NOTE: collection-model.js взаимодействие - сортировка, открытие, искать, фильтровать ...
+
 import Model from './model';
 /**
  * @template Item
@@ -33,7 +36,10 @@ export default class CollectionModel extends Model {
   /**
    * @override
    */
+  // NOTE: ready() - асинхронный метод который срабатывает по готовности и сохраняет данные с сервера в this.#items
+  // NOTE: ready() В зависимости от очередности вызова в main.js происходит сохранение в this.#items коллекций: pointsStore, destinationsStore, offerGroupsStore.
   async ready() {
+    // NOTE: list() метод из файла store.js
     this.#items = await this.#store.list();
   }
 
