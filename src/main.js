@@ -31,6 +31,10 @@ const AUTH = 'Basic er883jdzbdwkjl';
  * @type {Store<Point>}
  */
 const pointsStore = new Store(`${BASE}/points`, AUTH);
+// NOTE: pointsModel ????? для чего?
+// NOTE: pointsModel это я так думаю для приведения данных к адаптации вида данных
+// NOTE: pointsModel и для срабатывания повторного запроса к серверу при изменении структуры данных в коллекции
+// NOTE: pointsModel это будет срабатывать за счет встроенного интерфейса EventTarget
 const pointsModel = new CollectionModel({
   store: pointsStore,
   adapt: (item) => new PointAdapter(item),
@@ -42,6 +46,8 @@ const pointsModel = new CollectionModel({
  * @type {Store<Destination>}
  */
 const destinationsStore = new Store(`${BASE}/destinations`, AUTH);
+// NOTE: destinationsModel ????? для чего?
+// NOTE: destinationsModel аналогично pointsModel
 const destinationsModel = new CollectionModel({
   store: destinationsStore,
   adapt: (item) => new DestinationAdapter(item)
@@ -51,11 +57,14 @@ const destinationsModel = new CollectionModel({
  * @type {Store<OfferGroup>}
  */
 const offerGroupsStore = new Store(`${BASE}/offers`, AUTH);
+// NOTE: offerGroupsModel ????? для чего?
+// NOTE: offerGroupsModel аналогично pointsModel
 const offerGroupsModel = new CollectionModel({
   store: offerGroupsStore,
   adapt: (item) => new OfferGroupAdapter(item)
 });
 
+// NOTE: models список (массив) с моделями CollectionModel
 const models = [pointsModel, destinationsModel, offerGroupsModel];
 
 const newPointButtonView = document.querySelector('.trip-main__event-add-btn');

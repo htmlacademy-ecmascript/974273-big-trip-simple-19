@@ -5,6 +5,7 @@ export default class View extends HTMLElement {
   constructor () {
     super();
 
+    // NOTE: insertAdjacentHTML() производит вставку элемента в DOM дерево при его создании в классе View
     this.insertAdjacentHTML('beforeend', this.createHtml(...arguments));
   }
 
